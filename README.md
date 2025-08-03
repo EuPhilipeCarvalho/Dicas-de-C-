@@ -42,6 +42,7 @@ Permite que uma classe herde atributos e métodos de outra, evitando repetição
 class Aluno : public Pessoa {
 public:
     int matricula;
+    std::string curso;
 };
 ```
 
