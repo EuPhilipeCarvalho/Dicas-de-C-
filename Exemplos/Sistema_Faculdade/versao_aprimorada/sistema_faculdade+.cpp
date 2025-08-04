@@ -131,17 +131,17 @@ Direcao criarDiretor() {
     int idade, identificacao;
     cout << "== CADASTRO DIRECAO == " << endl;
 
-    cout << "Digite o nome do profissional: " << endl;
+    cout << "Digite o nome do profissional : " << endl;
     cin.ignore(); // limpar buffer
     getline(cin, nome);
 
     cout << "Digite a idade de: " << nome << endl;
     cin >> idade;
 
-    cout << "Digite a identificacao de: " << nome << endl;
+    cout << "Digite a identificacao de : " << nome << endl;
     cin >> identificacao;
 
-    cout << "Digite o cargo de: " << nome << endl;
+    cout << "Digite o cargo de : " << nome << endl;
     cin.ignore(); // limpar buffer
     getline(cin, cargo);
     cout << "--------------------- " << endl;
@@ -150,17 +150,17 @@ Direcao criarDiretor() {
 }
 
 // funcao para exibir os dados de um aluno
-void exibir_Aluno(Aluno const &aluno) {
+void exibir_Aluno(const Aluno &aluno) {
     aluno.exibirDadosAluno();
 }
 
 // funcao para exibir os dados de um professor
-void exibir_Professor(Professor const &professor) {
+void exibir_Professor(const Professor &professor) {
     professor.exibirDadosProfessor();
 }
 
 // funcao para exibir os dados de um diretor
-void exibir_Diretor(Direcao const &direcao) {
+void exibir_Diretor(const Direcao &direcao) {
     direcao.exibirDadosDirecao();
 }
 
