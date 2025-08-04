@@ -28,3 +28,18 @@ public:
 
 
 Embora o uso de "" tenha resolvido o problema, a solução com valor padrão para disciplina é mais clara e flexível, além de ser mais fácil de manter e entender.
+
+### Melhorias realizadas posteriormente
+Decidi criar funções para a criação de objetos e exibição, a fim de não deixar a função principal (main()) poluída. Além disso, usei & nos parâmetros, pois em C++ utilizamos o símbolo & para passar um objeto por referência. Isso significa que a função irá operar diretamente no objeto original, sem criar uma cópia dele.
+
+#### Passagem por Referência (&):
+Passar um objeto por referência evita a cópia desnecessária de objetos grandes, melhorando o desempenho. Além disso, permite que a função altere o objeto original, se necessário.
+
+Exemplo:
+```cpp
+void exibirDadosAluno(Aluno &aluno) {
+    aluno.exibirDadosAluno();  // Passagem por referência
+}
+```
+Neste exemplo, &aluno significa que estamos passando uma referência para o objeto aluno, sem copiá-lo. Usar referências ajuda a evitar cópias caras de objetos grandes, tornando o código mais eficiente.
+
