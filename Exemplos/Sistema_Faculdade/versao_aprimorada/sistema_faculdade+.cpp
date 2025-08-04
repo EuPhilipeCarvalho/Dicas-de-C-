@@ -14,13 +14,13 @@ public:
     }
 
     // metodo especial
-    void exibirDados() {
+    void exibirDados() const {
         cout << "Nome: " << nome << endl;
         cout << "Idade: " << idade << endl;
     }
 };
 
-// Classe herderia Alunos de Pessoa
+// Classe herdeira 'Alunos' de Pessoa
 class Aluno : public Pessoa {
 public:
     int matricula;
@@ -33,7 +33,7 @@ public:
     }
 
     // Metodo especial para exibicao
-    void exibirDadosAluno() {
+    void exibirDadosAluno() const {
         exibirDados();
         cout << "Matricula: " << matricula << endl;
         cout << "Curso :" << curso << endl;
@@ -52,7 +52,7 @@ public:
     }
 
     //Metodo especial de exibicao
-    void exibirDadosProfessor() {
+    void exibirDadosProfessor() const {
         exibirDados();
         cout << "Identificacao: " << identificacao << endl;
         cout << "Disciplina: " << disciplina << endl;
@@ -69,7 +69,7 @@ public:
     }
 
     //Metodo especial de exibicao
-    void exibirDadosDirecao() {
+    void exibirDadosDirecao() const {
         exibirDados();
         cout << "Identificacao: " << identificacao << endl;
         cout << "Cargo: " << cargo << endl;
@@ -96,6 +96,7 @@ Aluno criarAluno() {
     cout << "Digite o curso de: " << nome << endl;
     cin.ignore();
     getline(cin, curso);
+    cout << "--------------------- " << endl;
 
     return Aluno(nome,idade, matricula, curso);
 
@@ -105,6 +106,7 @@ Aluno criarAluno() {
 Professor criarProfessor() {
     string nome, disciplina;
     int idade, identificacao;
+     cout << "== CADASTRO PROFESSORES == " << endl;
 
     cout << "Digite o nome do professor(a): " << endl;
     cin.ignore(); // limpar buffer
@@ -119,6 +121,7 @@ Professor criarProfessor() {
     cout << "Digite a disciplina de: " << nome << endl;
     cin.ignore(); //limpar buffer
     getline(cin, disciplina);
+    cout << "--------------------- " << endl;
 
     return Professor(nome, idade, identificacao, disciplina);
 }
@@ -126,6 +129,7 @@ Professor criarProfessor() {
 Direcao criarDiretor() {
     string nome, cargo;
     int idade, identificacao;
+    cout << "== CADASTRO DIRECAO == " << endl;
 
     cout << "Digite o nome do profissional: " << endl;
     cin.ignore(); // limpar buffer
@@ -140,22 +144,23 @@ Direcao criarDiretor() {
     cout << "Digite o cargo de: " << nome << endl;
     cin.ignore(); // limpar buffer
     getline(cin, cargo);
+    cout << "--------------------- " << endl;
 
     return Direcao(nome, idade, identificacao, cargo);
 }
 
 // funcao para exibir os dados de um aluno
-void exibir_Aluno(Aluno &aluno) {
+void exibir_Aluno(Aluno const &aluno) {
     aluno.exibirDadosAluno();
 }
 
 // funcao para exibir os dados de um professor
-void exibir_Professor(Professor &professor) {
+void exibir_Professor(Professor const &professor) {
     professor.exibirDadosProfessor();
 }
 
 // funcao para exibir os dados de um diretor
-void exibir_Diretor(Direcao &direcao) {
+void exibir_Diretor(Direcao const &direcao) {
     direcao.exibirDadosDirecao();
 }
 
@@ -167,20 +172,15 @@ int main() {
     cin >> opcao;
 
     if (opcao == 1) {
-        cout << "== CADASTRO ALUNOS == " << endl;
-        Aluno aluno = criarAluno(); //Chama a funcao criar aluno
-        cout << "--------------------- " << endl;
+        Aluno aluno = criarAluno(); //Chama a funcao de criar aluno
         exibir_Aluno(aluno); // Chama a funcao de exibir os dados do aluno
 
     } else if (opcao == 2) {
-        cout << "== CADASTRO PROFESSORES == " << endl;
-        Professor professor = criarProfessor(); //Chama a funcao criar professor
-        cout << "--------------------- " << endl;
-        exibir_Professor(professor); // Chama a funcao exibir dados do professor
+        Professor professor = criarProfessor(); //Chama a funcao de criar professor
+        exibir_Professor(professor); // Chama a funcao de exibir dados do professor
 
     } else if (opcao == 3) {
         Direcao direcao = criarDiretor(); // Chama a funcao de criar diretor
-        cout << "--------------------- " << endl;
         exibir_Diretor(direcao); // Chama a funco de exibir dados de um diretor
 
     } else {
